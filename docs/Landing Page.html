@@ -3,9 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gabriel Tech Design — Site profissional em 7 dias</title>
-<link rel="icon" href="assets/gtd_icon.png" type="image/png" />
-<link rel="apple-touch-icon" href="assets/gtd_icon.png" />
+<title>Gabriel Tech Design — Presença digital que converte</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -22,8 +20,8 @@
           heading: '#FFFFFF',
           muted: '#6B6B6B',
           border: '#222222',
-          violet: { DEFAULT: '#FF7A1A', soft: '#FFB37A' },
-          amber: '#FF7A1A'
+          violet: { DEFAULT: '#FBBC04', soft: '#FFD95C' },
+          amber: '#FBBC04'
         },
         fontFamily: {
           display: ['Geist', 'system-ui', 'sans-serif'],
@@ -88,8 +86,8 @@
   }
   .bg-noise{
     background-image:
-      radial-gradient(1200px 600px at 80% 0%, rgba(255,122,26,.10), transparent 60%),
-      radial-gradient(900px 500px at 0% 100%, rgba(255,122,26,.06), transparent 60%);
+      radial-gradient(1200px 600px at 80% 0%, rgba(251,188,4,.10), transparent 60%),
+      radial-gradient(900px 500px at 0% 100%, rgba(251,188,4,.06), transparent 60%);
   }
 
   /* ---- Hero synthetic video background ---- */
@@ -131,20 +129,20 @@
   }
   /* Syntax-ish colors */
   .hv-k   { color: #B49CFF; }   /* keyword - violet */
-  .hv-fn  { color: #FF7A1A; }   /* function - lime */
+  .hv-fn  { color: #FBBC04; }   /* function - lime */
   .hv-s   { color: #FFD580; }   /* string */
   .hv-n   { color: #93C5FD; }   /* number/hex */
   .hv-c   { color: #6B7280; font-style: italic; } /* comment */
   .hv-t   { color: #F472B6; }   /* tag */
-  .hv-a   { color: #FF7A1A; }   /* attr */
+  .hv-a   { color: #FBBC04; }   /* attr */
   .hv-cls { color: #FBBF24; }
 
   /* Animated grid sweep */
   .hv-grid{
     inset: 0;
     background-image:
-      linear-gradient(to right, rgba(255,122,26,.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,122,26,.06) 1px, transparent 1px);
+      linear-gradient(to right, rgba(251,188,4,.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(251,188,4,.06) 1px, transparent 1px);
     background-size: 64px 64px;
     -webkit-mask-image: radial-gradient(ellipse at 30% 60%, black 0%, transparent 70%);
             mask-image: radial-gradient(ellipse at 30% 60%, black 0%, transparent 70%);
@@ -164,7 +162,7 @@
     animation: hv-orb-drift 22s ease-in-out infinite alternate;
   }
   .hv-orb--lime{
-    background: radial-gradient(closest-side, rgba(255,122,26,.55), rgba(255,122,26,0) 70%);
+    background: radial-gradient(closest-side, rgba(251,188,4,.55), rgba(251,188,4,0) 70%);
     top: -18%; left: -10%;
   }
   .hv-orb--violet{
@@ -201,12 +199,16 @@
 
   @media (prefers-reduced-motion: reduce){
     .hv-code-col--a pre, .hv-code-col--b pre, .hv-grid, .hv-orb{ animation: none; }
+    .cases-track{ animation: none; }
+    .cases-marquee{ overflow-x: auto; }
+    .scroll-dot{ animation: none; }
+    .reveal{ opacity:1; transform:none; transition:none; }
   }
 
   /* Halo behind portrait */
   .halo::before{
     content:""; position:absolute; inset:-12% -8% -8% -8%;
-    background: radial-gradient(closest-side, rgba(255,122,26,.40), rgba(255,122,26,0) 70%);
+    background: radial-gradient(closest-side, rgba(251,188,4,.40), rgba(251,188,4,0) 70%);
     filter: blur(14px); z-index:0;
   }
 
@@ -216,24 +218,24 @@
 
   /* Custom button shines */
   .btn-violet{
-    background:#FF7A1A; color:#090909; border-radius:999px;
-    box-shadow: 0 1px 0 rgba(255,255,255,.45) inset, 0 12px 30px -10px rgba(255,122,26,.45);
+    background:#FBBC04; color:#090909; border-radius:999px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.45) inset, 0 12px 30px -10px rgba(251,188,4,.45);
     transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
   }
-  .btn-violet:hover{ background:#FFB37A; transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 18px 38px -10px rgba(255,122,26,.55); }
+  .btn-violet:hover{ background:#FFD95C; transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 18px 38px -10px rgba(251,188,4,.55); }
   .btn-amber{
-    background:#FF7A1A; color:#090909; border-radius:999px;
-    box-shadow: 0 1px 0 rgba(255,255,255,.45) inset, 0 12px 30px -10px rgba(255,122,26,.45);
+    background:#FBBC04; color:#090909; border-radius:999px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.45) inset, 0 12px 30px -10px rgba(251,188,4,.45);
     transition: transform .2s ease, box-shadow .2s ease;
   }
   .btn-amber:hover{ transform: translateY(-1px); }
 
   .pill{ border:1px solid #222222; background:rgba(255,255,255,.02); border-radius:999px; }
-  .ring-violet-soft{ box-shadow: 0 0 0 1px rgba(255,122,26,.25); }
+  .ring-violet-soft{ box-shadow: 0 0 0 1px rgba(251,188,4,.25); }
 
   /* Card hover */
   .case-card{ transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease; }
-  .case-card:hover{ transform: translateY(-4px) scale(1.012); box-shadow: 0 30px 60px -25px rgba(255,122,26,.30); border-color: rgba(255,122,26,.5); }
+  .case-card:hover{ transform: translateY(-4px) scale(1.012); box-shadow: 0 30px 60px -25px rgba(251,188,4,.30); border-color: rgba(251,188,4,.5); }
 
   /* Cases marquee carousel */
   .cases-marquee{
@@ -249,7 +251,12 @@
     padding: 8px 12px;
     animation: cases-scroll 60s linear infinite;
   }
-  .cases-marquee:hover .cases-track{ animation-play-state: paused; }
+  .cases-marquee:hover .cases-track, .cases-marquee:focus-within .cases-track{ animation-play-state: paused; }
+  .cases-marquee.is-paused .cases-track{ animation-play-state: paused; }
+  .cases-toggle .ico-play{ display:none; }
+  .cases-toggle[aria-pressed="true"] .ico-play{ display:block; }
+  .cases-toggle[aria-pressed="true"] .ico-pause{ display:none; }
+  .cases-track .case-card:focus-visible{ outline:3px solid #FBBC04; outline-offset:3px; }
   @keyframes cases-scroll{
     from{ transform: translateX(0); }
     to  { transform: translateX(calc(-50% - 12px)); }
@@ -285,11 +292,11 @@
 
   /* FAQ */
   details.faq{ border:1px solid #222222; border-radius:18px; background:#111111; overflow:hidden; transition: border-color .25s ease, background .25s ease; }
-  details.faq[open]{ border-color: rgba(255,122,26,.40); background:#111111; }
+  details.faq[open]{ border-color: rgba(251,188,4,.40); background:#111111; }
   details.faq summary{ list-style:none; cursor:pointer; padding:22px 24px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
   details.faq summary::-webkit-details-marker{ display:none; }
   details.faq .faq-i{ width:32px; height:32px; border-radius:999px; border:1px solid #222222; display:grid; place-items:center; flex:none; transition: transform .3s ease, background .3s ease, border-color .3s ease; color:#F0F0F0; }
-  details.faq[open] .faq-i{ background:#FF7A1A; border-color:#FF7A1A; color:#090909; transform: rotate(45deg); }
+  details.faq[open] .faq-i{ background:#FBBC04; border-color:#FBBC04; color:#090909; transform: rotate(45deg); }
   details.faq .faq-body{ padding: 0 24px 24px; color: #6B6B6B; max-width: 720px; }
 
   /* Stripe placeholder for image-less imagery */
@@ -327,12 +334,12 @@
   .step-num{
     font-family:'Geist',sans-serif; font-weight:700; font-size:13px;
     width:34px; height:34px; border-radius:999px; display:grid; place-items:center;
-    background: rgba(255,122,26,.10); color:#FF7A1A; border:1px solid rgba(255,122,26,.35);
+    background: rgba(251,188,4,.10); color:#FBBC04; border:1px solid rgba(251,188,4,.35);
   }
 
   /* Testimonial frame */
   .quote-card{ border:1px solid #222222; background:#111111; border-radius: 22px; transition: border-color .3s ease; }
-  .quote-card:hover{ border-color: rgba(255,122,26,.40); }
+  .quote-card:hover{ border-color: rgba(251,188,4,.40); }
 
   @media (max-width: 768px){
     .display-xxl{ font-size: 44px !important; }
@@ -346,7 +353,7 @@
 <header id="nav" class="fixed top-0 inset-x-0 z-50 nav-clear transition-all duration-300">
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
     <a href="#top" class="flex items-center" aria-label="Gabriel Moreira">
-      <img src="assets/logo-branca.png" alt="Gabriel Moreira" class="h-7 w-auto" />
+      <img src="assets/logo-branca.png" alt="Gabriel Tech Design" class="h-11 w-auto" />
     </a>
     <nav class="hidden md:flex items-center gap-8 text-[14px] text-white/70">
       <a href="#como-funciona" class="hover:text-white transition">Como funciona</a>
@@ -389,7 +396,7 @@
 
 <span class="hv-c">// design → code → deploy</span>
 .<span class="hv-cls">btn</span>&nbsp;{
-  background:&nbsp;<span class="hv-n">#FF7A1A</span>;
+  background:&nbsp;<span class="hv-n">#FBBC04</span>;
   border-radius:&nbsp;<span class="hv-n">9999</span>px;
   transition:&nbsp;<span class="hv-n">.2</span>s&nbsp;ease;
 }
@@ -402,7 +409,7 @@
       <div class="hv-code-col hv-code-col--b">
         <pre><span class="hv-c">/* design tokens */</span>
 --ink:&nbsp;<span class="hv-n">#090909</span>;
---lime:&nbsp;<span class="hv-n">#FF7A1A</span>;
+--lime:&nbsp;<span class="hv-n">#FBBC04</span>;
 --violet:&nbsp;<span class="hv-n">#7B5CFF</span>;
 
 <span class="hv-k">@media</span>&nbsp;(min-width:&nbsp;<span class="hv-n">1024</span>px)&nbsp;{
@@ -439,13 +446,13 @@
       <h1 class="reveal display-xxl text-[56px] md:text-[68px] lg:text-[80px]" data-d="1">
         Seu site profissional<br/>
         no ar em até <span class="relative whitespace-nowrap">
-          <span class="relative z-10 text-[#FF7A1A]">7 dias</span>
-          <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none"><path d="M2 8 C 60 1, 140 1, 198 7" stroke="#FF7A1A" stroke-width="3" stroke-linecap="round"/></svg>
+          <span class="relative z-10 text-[#FBBC04]">7 dias</span>
+          <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none"><path d="M2 8 C 60 1, 140 1, 198 7" stroke="#FBBC04" stroke-width="3" stroke-linecap="round"/></svg>
         </span>.
       </h1>
 
       <p class="reveal mt-6 max-w-xl text-[18px] md:text-[20px] leading-relaxed text-[#6B6B6B]" data-d="2">
-        Para empreendedores brasileiros nos EUA que precisam de presença digital que converte — não de mais uma ferramenta pra aprender.
+        Para empresas que querem escalar e precisam de uma presença digital que converte — não de mais uma ferramenta pra aprender.
       </p>
 
       <div class="reveal mt-8 flex flex-wrap items-center gap-4" data-d="3">
@@ -466,18 +473,7 @@
         <div class="halo absolute inset-0 -z-0"></div>
         <div class="portrait-frame relative aspect-[4/5] max-w-[460px] mx-auto">
           <img src="assets/gabriel-hero.png" alt="Gabriel Moreira" class="absolute inset-0 w-full h-full object-cover" />
-          <!-- Floating credential card -->
-          <div class="absolute left-4 bottom-4 right-4 sm:left-auto sm:-left-6 sm:bottom-6 sm:right-auto sm:max-w-[240px] backdrop-blur-md bg-black/55 border border-white/10 rounded-2xl p-3.5 z-10">
-            <div class="flex items-center gap-3">
-              <span class="w-9 h-9 rounded-full bg-[#FF7A1A]/15 grid place-items-center">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2 14.6 8.4 21.5 9 16.2 13.8 17.8 20.5 12 17 6.2 20.5 7.8 13.8 2.5 9 9.4 8.4Z" stroke="#FF7A1A" stroke-width="1.4" stroke-linejoin="round"/></svg>
-              </span>
-              <div>
-                <div class="font-display font-semibold text-[13px]">Designer + Dev solo</div>
-                <div class="text-[11.5px] text-white/60">São Paulo · atendendo USA</div>
-              </div>
-            </div>
-          </div>
+          <!-- Floating credential card removed -->
           <!-- Floating timer card removed -->
         </div>
       </div>
@@ -486,7 +482,7 @@
       <div class="hidden lg:flex absolute -bottom-2 right-2 flex-col items-center gap-2 text-white/45 text-[10px] uppercase tracking-[0.2em]">
         <span>scroll</span>
         <span class="w-px h-8 bg-white/20 relative overflow-hidden">
-          <span class="absolute inset-x-0 top-0 h-2 bg-[#FF7A1A] scroll-dot"></span>
+          <span class="absolute inset-x-0 top-0 h-2 bg-[#FBBC04] scroll-dot"></span>
         </span>
       </div>
     </div>
@@ -527,23 +523,19 @@
 </section>
 
 <!-- ============== STATS ============== -->
-<section id="stats" class="bg-[#FF7A1A] text-[#090909]">
-  <div class="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 lg:py-20 grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
+<section id="stats" class="bg-[#FBBC04] text-[#090909]">
+  <div class="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 lg:py-20 grid grid-cols-1 sm:grid-cols-3 gap-y-12 gap-x-8 text-center justify-items-center">
     <div class="reveal" data-d="0">
-      <div class="display-xl text-[56px] md:text-[64px] stat-num"><span data-count="10" data-suffix="" data-prefix="+">+0</span></div>
-      <div class="text-[#090909]/75 text-[14.5px] mt-2 max-w-[200px]">anos de experiência em tech e design</div>
+      <div class="display-xl text-[56px] md:text-[64px] stat-num"><span data-count="9" data-suffix="" data-prefix="+">+0</span></div>
+      <div class="text-[#4A3A00] text-[14.5px] mt-2 max-w-[220px] mx-auto">anos de experiência em tecnologia</div>
     </div>
     <div class="reveal" data-d="1">
       <div class="display-xl text-[56px] md:text-[64px] stat-num"><span data-count="144" data-suffix="%">0%</span></div>
-      <div class="text-[#090909]/75 text-[14.5px] mt-2 max-w-[200px]">de ROI comprovado em projeto estratégico</div>
-    </div>
-    <div class="reveal" data-d="2">
-      <div class="display-xl text-[56px] md:text-[64px] stat-num"><span data-count="2" data-suffix="M" data-prefix="+$">+$0M</span></div>
-      <div class="text-[#090909]/75 text-[14.5px] mt-2 max-w-[200px]">de valor gerado em projetos corporativos</div>
+      <div class="text-[#4A3A00] text-[14.5px] mt-2 max-w-[220px] mx-auto">de ROI comprovado em projeto estratégico</div>
     </div>
     <div class="reveal" data-d="3">
       <div class="display-xl text-[56px] md:text-[64px] stat-num"><span data-count="7" data-suffix=" dias">0 dias</span></div>
-      <div class="text-[#090909]/75 text-[14.5px] mt-2 max-w-[200px]">prazo máximo de entrega garantido</div>
+      <div class="text-[#4A3A00] text-[14.5px] mt-2 max-w-[220px] mx-auto">prazo máximo de entrega garantido</div>
     </div>
   </div>
 </section>
@@ -553,7 +545,7 @@
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10">
     <div class="reveal flex items-end justify-between gap-6 flex-wrap">
       <div class="max-w-[680px]">
-        <p class="eyebrow text-[#FF7A1A]">Como funciona · 04 etapas</p>
+        <p class="eyebrow text-[#FBBC04]">Como funciona · 04 etapas</p>
         <h2 class="display-xl mt-4 text-[40px] md:text-[56px]">Do briefing ao site no ar em até 7 dias.</h2>
       </div>
       <p class="text-white/60 max-w-sm text-[15px]">Sem reuniões intermináveis, sem agência cobrando por hora. Você fala direto com quem desenha, escreve e codifica.</p>
@@ -561,37 +553,37 @@
 
     <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
       <!-- Step 1 -->
-      <div class="reveal relative bg-[#111111] border border-[#222222] rounded-3xl p-7 hover:border-[#FF7A1A]/40 transition" data-d="0">
+      <div class="reveal relative bg-[#111111] border border-[#222222] rounded-3xl p-7 hover:border-[#FBBC04]/40 transition" data-d="0">
         <div class="flex items-center justify-between">
           <div class="step-num">01</div>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h16" stroke="#FF7A1A" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h16" stroke="#FBBC04" stroke-width="1.6" stroke-linecap="round"/></svg>
         </div>
         <h3 class="font-display font-semibold text-[20px] mt-6">Briefing rápido</h3>
         <p class="text-white/60 text-[14.5px] mt-2 leading-relaxed">Você me conta o projeto em 30 minutos. Eu entendo o negócio, não só o visual.</p>
       </div>
       <!-- Step 2 -->
-      <div class="reveal relative bg-[#111111] border border-[#222222] rounded-3xl p-7 hover:border-[#FF7A1A]/40 transition" data-d="1">
+      <div class="reveal relative bg-[#111111] border border-[#222222] rounded-3xl p-7 hover:border-[#FBBC04]/40 transition" data-d="1">
         <div class="flex items-center justify-between">
           <div class="step-num">02</div>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="#FF7A1A" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" stroke="#FF7A1A" stroke-width="1.6"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="#FBBC04" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" stroke="#FBBC04" stroke-width="1.6"/></svg>
         </div>
         <h3 class="font-display font-semibold text-[20px] mt-6">Protótipo em horas</h3>
         <p class="text-white/60 text-[14.5px] mt-2 leading-relaxed">Uso IA e design system próprio pra gerar a primeira versão rapidamente.</p>
       </div>
       <!-- Step 3 -->
-      <div class="reveal relative bg-[#111111] border border-[#222222] rounded-3xl p-7 hover:border-[#FF7A1A]/40 transition" data-d="2">
+      <div class="reveal relative bg-[#111111] border border-[#222222] rounded-3xl p-7 hover:border-[#FBBC04]/40 transition" data-d="2">
         <div class="flex items-center justify-between">
           <div class="step-num">03</div>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17l5-5 4 4 7-9" stroke="#FF7A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7h6v6" stroke="#FF7A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17l5-5 4 4 7-9" stroke="#FBBC04" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7h6v6" stroke="#FBBC04" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <h3 class="font-display font-semibold text-[20px] mt-6">Refino junto com você</h3>
         <p class="text-white/60 text-[14.5px] mt-2 leading-relaxed">Ajustamos copy, imagens e detalhes até estar exatamente certo.</p>
       </div>
       <!-- Step 4 -->
-      <div class="reveal relative bg-[#FF7A1A]/10 border border-[#FF7A1A]/40 rounded-3xl p-7 hover:border-[#FF7A1A]/70 transition" data-d="3">
+      <div class="reveal relative bg-[#FBBC04]/10 border border-[#FBBC04]/40 rounded-3xl p-7 hover:border-[#FBBC04]/70 transition" data-d="3">
         <div class="flex items-center justify-between">
           <div class="step-num">04</div>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z" stroke="#FF7A1A" stroke-width="1.6" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="#FF7A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z" stroke="#FBBC04" stroke-width="1.6" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="#FBBC04" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <h3 class="font-display font-semibold text-[20px] mt-6">No ar. Seu.</h3>
         <p class="text-white/70 text-[14.5px] mt-2 leading-relaxed">Entrego o site hospedado, com domínio configurado e código 100% seu.</p>
@@ -607,7 +599,7 @@
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10">
     <div class="reveal flex items-end justify-between gap-6 flex-wrap">
       <div>
-        <p class="eyebrow text-[#FF7A1A]">Cases selecionados</p>
+        <p class="eyebrow text-[#FBBC04]">Cases selecionados</p>
         <h2 class="display-xl mt-4 text-[40px] md:text-[56px]">Problema → Resultado.<br/>Sem vitrine, só impacto.</h2>
       </div>
       <a href="#" data-wa class="text-white/70 hover:text-white text-[14.5px] inline-flex items-center gap-2 transition">Discutir o seu caso →</a>
@@ -615,7 +607,7 @@
   </div>
 
   <div class="mt-14 reveal cases-marquee" data-d="1">
-    <div class="cases-track">
+    <div class="cases-track" id="cases-track">
       <!-- track items (rendered twice for seamless loop) -->
       <a href="#" class="case-card group">
         <div class="case-thumb"><img src="assets/projects/agente-360.png" alt="Agente 360" loading="lazy" /></div>
@@ -679,13 +671,20 @@
       </a>
     </div>
   </div>
+  <div class="max-w-[1240px] mx-auto px-6 lg:px-10 mt-6 flex justify-end">
+    <button type="button" id="cases-toggle" aria-pressed="false" aria-controls="cases-track" class="cases-toggle inline-flex items-center gap-2 rounded-full border border-[#222222] px-4 py-2.5 text-[13px] text-white/70 hover:text-white hover:border-[#FBBC04]/60 transition">
+      <svg class="ico-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      <svg class="ico-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l11 7-11 7V5Z"/></svg>
+      <span class="cases-toggle-label">Pausar carrossel</span>
+    </button>
+  </div>
 </section>
 
 <!-- ============== SOBRE ============== -->
 <section id="sobre" class="py-24 lg:py-32">
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
     <div class="lg:col-span-5 reveal">
-      <div class="relative aspect-square max-w-[460px] rounded-[28px] overflow-hidden ring-violet-soft" style="box-shadow: 0 0 0 2px #FF7A1A, 0 30px 80px -30px rgba(255,122,26,.35);">
+      <div class="relative aspect-square max-w-[460px] rounded-[28px] overflow-hidden ring-violet-soft" style="box-shadow: 0 0 0 2px #FBBC04, 0 30px 80px -30px rgba(251,188,4,.35);">
         <img src="assets/gabriel-about.jpg" alt="Gabriel Moreira" class="absolute inset-0 w-full h-full object-cover" />
         <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-white/70">
           <span class="bg-black/55 backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5">design × ai × code</span>
@@ -694,13 +693,13 @@
     </div>
 
     <div class="lg:col-span-7 reveal" data-d="1">
-      <p class="eyebrow text-[#FF7A1A]">Sobre</p>
+      <p class="eyebrow text-[#FBBC04]">Sobre</p>
       <h2 class="display-xl mt-4 text-[36px] md:text-[48px]">Sou Gabriel Moreira.</h2>
       <p class="mt-6 text-[17px] md:text-[18px] leading-relaxed text-white/80 max-w-[620px]">
-        <strong class="text-white font-semibold">Designer, desenvolvedor e estrategista digital</strong> com <strong class="text-[#FF7A1A] font-semibold">mais de 10 anos</strong> entregando projetos para <strong class="text-white font-semibold">grandes empresas</strong> — e agora focado em ajudar <strong class="text-white font-semibold">empreendedores brasileiros nos EUA</strong> a terem a presença digital que o negócio deles merece.
+        <strong class="text-white font-semibold">Designer, desenvolvedor e estrategista digital</strong> com <strong class="text-[#FBBC04] font-semibold">mais de 9 anos</strong> entregando projetos para <strong class="text-white font-semibold">grandes empresas</strong> — e agora ajudando <strong class="text-white font-semibold">negócios que querem escalar</strong> a ter a presença digital que o resultado deles exige.
       </p>
       <p class="mt-5 text-[17px] md:text-[18px] leading-relaxed text-white/65 max-w-[620px]">
-        <strong class="text-white font-semibold">Não sou uma agência.</strong> Sou um <strong class="text-[#FF7A1A] font-semibold">profissional solo</strong>, o que significa que você fala direto com quem faz. Cada projeto é tratado como se fosse <strong class="text-white font-semibold">o único</strong>.
+        <strong class="text-white font-semibold">Não sou uma agência.</strong> Sou um <strong class="text-[#FBBC04] font-semibold">profissional solo</strong>, o que significa que você fala direto com quem faz. Cada projeto é tratado como se fosse <strong class="text-white font-semibold">o único</strong>.
       </p>
     </div>
   </div>
@@ -711,14 +710,14 @@
   <div class="absolute inset-0 bg-noise opacity-60 pointer-events-none"></div>
   <div class="relative max-w-[1240px] mx-auto px-6 lg:px-10">
     <div class="reveal">
-      <p class="eyebrow text-[#FF7A1A]">Depoimentos</p>
+      <p class="eyebrow text-[#FBBC04]">Depoimentos</p>
       <h2 class="display-xl mt-4 text-[40px] md:text-[52px] max-w-3xl">Quem trabalhou comigo.</h2>
     </div>
 
     <div class="mt-14 grid md:grid-cols-3 gap-5">
       <!-- T1 -->
       <figure class="reveal quote-card p-7" data-d="0">
-        <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true"><path d="M0 22V12C0 5.4 4.6 0 11 0v4c-3.3 0-6 2.7-6 6h6v12H0Zm17 0V12C17 5.4 21.6 0 28 0v4c-3.3 0-6 2.7-6 6h6v12H17Z" fill="#FF7A1A"/></svg>
+        <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true"><path d="M0 22V12C0 5.4 4.6 0 11 0v4c-3.3 0-6 2.7-6 6h6v12H0Zm17 0V12C17 5.4 21.6 0 28 0v4c-3.3 0-6 2.7-6 6h6v12H17Z" fill="#FBBC04"/></svg>
         <blockquote class="mt-5 text-[16px] leading-relaxed text-white/90">
           O site se tornou um verdadeiro canal de evangelização. Nos conectamos com mais jovens e fortalecemos nossa presença digital.
         </blockquote>
@@ -735,7 +734,7 @@
 
       <!-- T2 -->
       <figure class="reveal quote-card p-7" data-d="1">
-        <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true"><path d="M0 22V12C0 5.4 4.6 0 11 0v4c-3.3 0-6 2.7-6 6h6v12H0Zm17 0V12C17 5.4 21.6 0 28 0v4c-3.3 0-6 2.7-6 6h6v12H17Z" fill="#FF7A1A"/></svg>
+        <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true"><path d="M0 22V12C0 5.4 4.6 0 11 0v4c-3.3 0-6 2.7-6 6h6v12H0Zm17 0V12C17 5.4 21.6 0 28 0v4c-3.3 0-6 2.7-6 6h6v12H17Z" fill="#FBBC04"/></svg>
         <blockquote class="mt-5 text-[16px] leading-relaxed text-white/90">
           O Gabriel entregou tudo com rapidez e qualidade. Em menos de 7 dias o site estava no ar e hoje prospectamos clientes diretamente por ele.
         </blockquote>
@@ -752,7 +751,7 @@
 
       <!-- T3 -->
       <figure class="reveal quote-card p-7" data-d="2">
-        <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true"><path d="M0 22V12C0 5.4 4.6 0 11 0v4c-3.3 0-6 2.7-6 6h6v12H0Zm17 0V12C17 5.4 21.6 0 28 0v4c-3.3 0-6 2.7-6 6h6v12H17Z" fill="#FF7A1A"/></svg>
+        <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true"><path d="M0 22V12C0 5.4 4.6 0 11 0v4c-3.3 0-6 2.7-6 6h6v12H0Zm17 0V12C17 5.4 21.6 0 28 0v4c-3.3 0-6 2.7-6 6h6v12H17Z" fill="#FBBC04"/></svg>
         <blockquote class="mt-5 text-[16px] leading-relaxed text-white/90">
           Visão estratégica e inovadora, sempre focado em resultado. O projeto gerou impacto real no negócio.
         </blockquote>
@@ -774,7 +773,7 @@
 <section id="faq" class="bg-night py-24 lg:py-32">
   <div class="max-w-[1040px] mx-auto px-6 lg:px-10">
     <div class="reveal text-center">
-      <p class="eyebrow text-[#FF7A1A]">Perguntas frequentes</p>
+      <p class="eyebrow text-[#FBBC04]">Perguntas frequentes</p>
       <h2 class="display-xl mt-4 text-[40px] md:text-[52px]">Tudo que você quer saber<br/>antes de me chamar.</h2>
     </div>
 
@@ -784,33 +783,33 @@
           <span class="font-display font-medium text-[17px]">Quanto tempo leva?</span>
           <span class="faq-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         </summary>
-        <div class="faq-body">Até 7 dias corridos do briefing à entrega. Se não entregar, você recebe 100% do valor de volta.</div>
+        <div class="faq-body">Seu site fica pronto em até 7 dias corridos a partir da entrega do briefing preenchido por você. O processo é 100% ágil e transparente para você acompanhar o avanço em cada etapa.</div>
       </details>
       <details class="faq reveal">
         <summary>
-          <span class="font-display font-medium text-[17px]">Quanto custa?</span>
+          <span class="font-display font-medium text-[17px]">Quanto custa o projeto?</span>
           <span class="faq-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         </summary>
-        <div class="faq-body">Projetos a partir de US$1.500. O valor final depende do escopo. Me chama no WhatsApp e a gente alinha em 30 minutos.</div>
+        <div class="faq-body">O investimento é personalizado de acordo com o escopo e as necessidades do seu negócio. Me chame no WhatsApp para alinharmos os detalhes em 30 minutos e definirmos a melhor solução para você.</div>
       </details>
       <details class="faq reveal">
         <summary>
-          <span class="font-display font-medium text-[17px]">E a hospedagem?</span>
+          <span class="font-display font-medium text-[17px]">Como funciona a hospedagem?</span>
           <span class="faq-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         </summary>
-        <div class="faq-body">Configuro tudo pra você.</div>
+        <div class="faq-body">Você não precisa se preocupar com nada da parte técnica. Eu configuro e otimizo todo o site diretamente no meu servidor de alta performance para garantir máxima velocidade e segurança.</div>
       </details>
       <details class="faq reveal">
         <summary>
-          <span class="font-display font-medium text-[17px]">A garantia é real?</span>
+          <span class="font-display font-medium text-[17px]">Como funciona a garantia e aprovação?</span>
           <span class="faq-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         </summary>
-        <div class="faq-body">Sim. Se não entregar em 7 dias úteis ou você não aprovar o resultado, devolvo 100% do valor pago. Sem burocracia.</div>
+        <div class="faq-body">Seu investimento é totalmente protegido: você realiza 50% de entrada para iniciar o projeto e acompanha a construção. O site só entra no ar após a sua validação e aprovação final do resultado e você só faz o pagamento do saldo restante quando tudo estiver aprovado.</div>
       </details>
     </div>
 
     <div class="mt-12 text-center reveal">
-      <a href="https://wa.me/5511984116812" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-[15px] text-white/85 hover:text-white border border-[#222222] hover:border-[#FF7A1A]/60 rounded-full px-5 py-3 transition">
+      <a href="https://wa.me/5511947672575" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-[15px] text-white/85 hover:text-white border border-[#222222] hover:border-[#FBBC04]/60 rounded-full px-5 py-3 transition">
         Ainda tem dúvida? Agenda uma conversa rápida
         <span aria-hidden="true">→</span>
       </a>
@@ -819,14 +818,14 @@
 </section>
 
 <!-- ============== CTA FINAL ============== -->
-<section id="contato" class="bg-[#FF7A1A] text-ink">
+<section id="contato" class="bg-[#FBBC04] text-ink">
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 lg:py-28 grid lg:grid-cols-12 gap-10 items-center">
     <div class="lg:col-span-8 reveal">
-      <p class="eyebrow text-ink/60">Agora é a hora</p>
+      <p class="eyebrow text-[#4A3A00]">Agora é a hora</p>
       <h2 class="display-xxl mt-4 text-[44px] md:text-[64px] lg:text-[78px] text-ink typer" data-typer="Seu concorrente já tem|um site que converte." aria-label="Seu concorrente já tem um site que converte.">
         <span class="typer-out" aria-hidden="true"></span><span class="typer-caret" aria-hidden="true"></span>
       </h2>
-      <p class="mt-6 text-[18px] md:text-[20px] leading-relaxed text-ink/75 max-w-2xl">Você pode ter um em até 7 dias. Sem enrolação, sem agência, sem surpresa no preço.</p>
+      <p class="mt-6 text-[18px] md:text-[20px] leading-relaxed text-[#3A2D00] max-w-2xl">Você pode ter um em até 7 dias. Sem enrolação, sem agência, sem surpresa no preço.</p>
     </div>
     <div class="lg:col-span-4 reveal" data-d="1">
       <a href="#" data-wa class="cta-final group relative overflow-hidden bg-ink hover:bg-[#0d0d0d] text-white rounded-2xl px-7 py-6 inline-flex items-center justify-between gap-6 w-full transition-all duration-300 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] hover:shadow-[0_28px_80px_-20px_rgba(0,0,0,0.65)] hover:-translate-y-0.5">
@@ -835,14 +834,14 @@
         <span class="relative">
           <span class="flex items-center gap-2 font-mono uppercase tracking-widest text-[11px] text-white/55">
             <span class="relative flex h-1.5 w-1.5">
-              <span class="absolute inline-flex h-full w-full rounded-full bg-[#FF7A1A] opacity-70 animate-ping"></span>
-              <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#FF7A1A]"></span>
+              <span class="absolute inline-flex h-full w-full rounded-full bg-[#FBBC04] opacity-70 animate-ping"></span>
+              <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#FBBC04]"></span>
             </span>
             Resposta em minutos
           </span>
           <span class="block font-display font-semibold text-[22px] mt-1.5 tracking-[-0.01em]">Quero meu site agora</span>
         </span>
-        <span class="relative grid place-items-center w-14 h-14 rounded-full bg-[#FF7A1A] text-ink overflow-hidden transition-transform duration-300 group-hover:scale-105">
+        <span class="relative grid place-items-center w-14 h-14 rounded-full bg-[#FBBC04] text-ink overflow-hidden transition-transform duration-300 group-hover:scale-105">
           <!-- arrow that slides out, replaced by next arrow -->
           <svg class="w-5 h-5 transition-transform duration-300 ease-out group-hover:translate-x-10" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -865,9 +864,9 @@
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10 py-14 grid md:grid-cols-2 gap-8 items-start">
     <div>
       <a href="#top" class="flex items-center" aria-label="Gabriel Moreira">
-        <img src="assets/logo-branca.png" alt="Gabriel Moreira" class="h-7 w-auto" />
+        <img src="assets/logo-branca.png" alt="Gabriel Tech Design" class="h-11 w-auto" />
       </a>
-      <p class="mt-4 text-white/50 text-[13.5px] max-w-xs">Sites profissionais para empreendedores brasileiros nos EUA. Em até 7 dias.</p>
+      <p class="mt-4 text-white/50 text-[13.5px] max-w-xs">Presença digital que converte. Para empresas que querem escalar.</p>
     </div>
     <div class="md:justify-self-end">
       <div class="font-mono uppercase tracking-widest text-[11px] text-white/40">Navegar</div>
@@ -890,7 +889,7 @@
 </main>
 
 <!-- ============== FLOATING WHATSAPP FAB ============== -->
-<a href="#" data-wa aria-label="Falar no WhatsApp" style="font-family: Inter" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#FF7A1A] text-[#090909] grid place-items-center shadow-[0_15px_40px_-10px_rgba(255,122,26,0.5)] hover:scale-105 transition">] hover:scale-105 transition">
+<a href="#" data-wa aria-label="Falar no WhatsApp" style="font-family: Inter" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#FBBC04] text-[#090909] grid place-items-center shadow-[0_15px_40px_-10px_rgba(251,188,4,0.5)] hover:scale-105 transition">] hover:scale-105 transition">
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.3 3.1c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.4.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.1-1.4-.1-.1-.3-.2-.5-.3ZM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.3 1.3 4.8L2 22l5.4-1.4c1.4.8 3 1.2 4.6 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2Z"/></svg>
 </a>
 
@@ -901,7 +900,7 @@
 /* =====================================================
    1. WhatsApp links (single source of truth)
    ===================================================== */
-const WA_NUM = "5511984116812";
+const WA_NUM = "5511947672575";
 const WA_MSG = "Oi! Vim do site, quero conversar sobre fazer meu site em 7 dias.";
 function waUrl(){
   return `https://wa.me/${WA_NUM}`;
@@ -933,8 +932,19 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   items.forEach(node => {
     const clone = node.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
+    clone.setAttribute('tabindex', '-1');
     track.appendChild(clone);
   });
+  const marquee = track.closest('.cases-marquee');
+  const btn = document.getElementById('cases-toggle');
+  if(marquee && btn){
+    const label = btn.querySelector('.cases-toggle-label');
+    btn.addEventListener('click', () => {
+      const paused = marquee.classList.toggle('is-paused');
+      btn.setAttribute('aria-pressed', String(paused));
+      label.textContent = paused ? 'Retomar carrossel' : 'Pausar carrossel';
+    });
+  }
 })();
 
 /* =====================================================
@@ -1012,9 +1022,9 @@ onScroll();
    5. Tweaks panel
    ===================================================== */
 const TWEAKS = /*EDITMODE-BEGIN*/{
-  "primary": "#FF7A1A",
-  "primarySoft": "#FFB37A",
-  "amber": "#FF7A1A",
+  "primary": "#FBBC04",
+  "primarySoft": "#FFD95C",
+  "amber": "#FBBC04",
   "headline": "Seu site profissional no ar em até 7 dias.",
   "showFab": false,
   "marqueeSpeed": 38
@@ -1069,7 +1079,7 @@ function renderTweaksPanel(){
     <div style="position:fixed; right:20px; top:80px; z-index:60; width:300px; background:#0D0D0D; color:#F5F5F5; border:1px solid rgba(255,255,255,.12); border-radius:18px; box-shadow:0 30px 60px -20px rgba(0,0,0,.6); font-family:Inter,sans-serif;">
       <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.08);">
         <span style="font-family:Geist,sans-serif; font-weight:600; font-size:13px; letter-spacing:-.01em;">Tweaks</span>
-        <button id="tw-close" style="background:transparent; border:0; color:#FF7A1A; cursor:pointer; font-size:18px; line-height:1;">×</button>
+        <button id="tw-close" style="background:transparent; border:0; color:#FBBC04; cursor:pointer; font-size:18px; line-height:1;">×</button>
       </div>
       <div style="padding:14px 16px; display:grid; gap:14px;">
         <label style="display:grid; gap:6px; font-size:12px; color:rgba(245,245,245,.7);">
