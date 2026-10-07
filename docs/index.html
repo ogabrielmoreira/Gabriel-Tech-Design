@@ -154,11 +154,6 @@ footer i{color:var(--y);font-style:normal}
       <svg class="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
 
-    <a class="card r" style="--i:4" id="cal" href="#" target="_blank" rel="noopener">
-      <div class="badge"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M9 15l2 2 4-4"/></svg></div>
-      <div class="txt"><b data-t="cal_t" data-soon-key="soon"></b><span data-t="cal_d"></span></div>
-      <svg class="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
 
     <div class="section-label r" style="--i:5" data-t="s_work"></div>
 
@@ -261,7 +256,7 @@ function setLang(l){
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
 
 // links ainda pendentes
-[['cal',CALENDLY_URL],['rev',GOOGLE_REVIEW_URL]].forEach(([id,url])=>{
+[['rev',GOOGLE_REVIEW_URL]].forEach(([id,url])=>{
   const a = document.getElementById(id);
   if(url){ a.href = url; } else { a.classList.add('pending'); a.removeAttribute('target'); a.addEventListener('click',e=>e.preventDefault()); }
 });
