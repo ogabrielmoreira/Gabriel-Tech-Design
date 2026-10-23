@@ -350,6 +350,22 @@
     .display-xxl{ font-size: 44px !important; }
     .display-xl{ font-size: 36px !important; }
   }
+
+  /* Seletor de idioma */
+  .lang-switch{ display:flex; gap:2px; padding:3px; border-radius:999px;
+    background:rgba(255,255,255,.04); border:1px solid #222222; }
+  .lang-switch button{ all:unset; cursor:pointer; font-family:'JetBrains Mono',monospace;
+    font-size:11px; font-weight:500; letter-spacing:.08em; padding:7px 11px;
+    border-radius:999px; color:rgba(255,255,255,.55); transition:background .25s ease, color .25s ease; }
+  .lang-switch button:hover{ color:#FFFFFF; }
+  .lang-switch button[aria-pressed="true"]{ background:#FBBC04; color:#090909; }
+  .lang-switch button:focus-visible{ outline:2px solid #FBBC04; outline-offset:2px; }
+  @media (max-width:480px){
+    .lang-switch button{ padding:7px 9px; font-size:10px; }
+    /* com o seletor no header, o CTA do topo precisa encolher pra nao quebrar em 2 linhas */
+    header .btn-violet{ padding:8px 12px; font-size:12px; white-space:nowrap; }
+    header .btn-violet svg{ display:none; }
+  }
 </style>
 </head>
 <body class="bg-ink text-paper">
@@ -361,15 +377,21 @@
       <img src="assets/logo-branca.png" alt="Gabriel Tech Design" class="h-11 w-auto" />
     </a>
     <nav class="hidden md:flex items-center gap-8 text-[14px] text-white/70">
-      <a href="#como-funciona" class="hover:text-white transition">Como funciona</a>
-      <a href="#cases" class="hover:text-white transition">Cases</a>
-      <a href="#faq" class="hover:text-white transition">FAQ</a>
-      <a href="#contato" class="hover:text-white transition">Contato</a>
+      <a href="#como-funciona" class="hover:text-white transition" data-t="nav_how">Como funciona</a>
+      <a href="#cases" class="hover:text-white transition" data-t="nav_cases">Cases</a>
+      <a href="#faq" class="hover:text-white transition" data-t="nav_faq">FAQ</a>
+      <a href="#contato" class="hover:text-white transition" data-t="nav_contact">Contato</a>
     </nav>
+    <div class="flex items-center gap-3">
+    <div class="lang-switch" role="group" aria-label="Idioma / Language">
+      <button type="button" data-l="pt" aria-pressed="true">PT</button>
+      <button type="button" data-l="en" aria-pressed="false">EN</button>
+    </div>
     <a href="#" data-wa class="btn-violet group px-4 py-2.5 text-[13.5px] font-medium inline-flex items-center gap-2">
-      Falar no WhatsApp
+      <span data-t="nav_cta">Falar no WhatsApp</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
+    </div>
   </div>
 </header>
 
@@ -448,7 +470,7 @@
 
   <div class="relative max-w-[1240px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
     <div class="lg:col-span-7">
-      <h1 class="reveal display-xxl text-[56px] md:text-[68px] lg:text-[80px]" data-d="1">
+      <h1 class="reveal display-xxl text-[56px] md:text-[68px] lg:text-[80px]" data-d="1" data-t="hero_h1" data-html>
         Seu site profissional<br/>
         no ar em até <span class="relative whitespace-nowrap">
           <span class="relative z-10 text-[#FBBC04]">7 dias</span>
@@ -456,17 +478,17 @@
         </span>.
       </h1>
 
-      <p class="reveal mt-6 max-w-xl text-[18px] md:text-[20px] leading-relaxed text-[#6B6B6B]" data-d="2">
+      <p class="reveal mt-6 max-w-xl text-[18px] md:text-[20px] leading-relaxed text-[#6B6B6B]" data-d="2" data-t="hero_sub">
         Para empresas que querem escalar e precisam de uma presença digital que converte — não de mais uma ferramenta pra aprender.
       </p>
 
       <div class="reveal mt-8 flex flex-wrap items-center gap-4" data-d="3">
         <a href="#" data-wa class="btn-violet inline-flex items-center gap-2 px-7 py-4 font-display font-medium text-[16px]">
-          Quero meu site em 7 dias
+          <span data-t="hero_cta">Quero meu site em 7 dias</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a href="#cases" class="text-white/70 hover:text-white text-[14.5px] inline-flex items-center gap-2 transition">
-          Ver casos <span aria-hidden="true">→</span>
+          <span data-t="hero_cases">Ver casos</span> <span aria-hidden="true">→</span>
         </a>
       </div>
 
@@ -497,7 +519,7 @@
 <!-- ============== LOGO MARQUEE ============== -->
 <section id="logos" class="bg-night py-10 border-y border-[#222222]">
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10">
-    <p class="eyebrow text-white/55 text-center">Projetos entregues para</p>
+    <p class="eyebrow text-white/55 text-center" data-t="logos_label">Projetos entregues para</p>
   </div>
   <div class="marquee mt-6 overflow-hidden">
     <div class="marquee-track flex whitespace-nowrap will-change-transform">
@@ -532,15 +554,15 @@
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10 py-16 lg:py-20 grid grid-cols-1 sm:grid-cols-3 gap-y-12 gap-x-8 text-center justify-items-center">
     <div class="reveal" data-d="0">
       <div class="display-xl text-[56px] md:text-[64px] stat-num"><span data-count="9" data-suffix="" data-prefix="+">+0</span></div>
-      <div class="text-[#4A3A00] text-[14.5px] mt-2 max-w-[220px] mx-auto">anos de experiência em tecnologia</div>
+      <div class="text-[#4A3A00] text-[14.5px] mt-2 max-w-[220px] mx-auto" data-t="stat1">anos de experiência em tecnologia</div>
     </div>
     <div class="reveal" data-d="1">
       <div class="display-xl text-[56px] md:text-[64px] stat-num"><span data-count="144" data-suffix="%">0%</span></div>
-      <div class="text-[#4A3A00] text-[14.5px] mt-2 max-w-[220px] mx-auto">de ROI comprovado em projeto estratégico</div>
+      <div class="text-[#4A3A00] text-[14.5px] mt-2 max-w-[220px] mx-auto" data-t="stat2">de ROI comprovado em projeto estratégico</div>
     </div>
     <div class="reveal" data-d="3">
-      <div class="display-xl text-[56px] md:text-[64px] stat-num"><span data-count="7" data-suffix=" dias">0 dias</span></div>
-      <div class="text-[#4A3A00] text-[14.5px] mt-2 max-w-[220px] mx-auto">prazo máximo de entrega garantido</div>
+      <div class="display-xl text-[56px] md:text-[64px] stat-num"><span data-count="7" data-suffix=" dias" data-t-suffix="days">0 dias</span></div>
+      <div class="text-[#4A3A00] text-[14.5px] mt-2 max-w-[220px] mx-auto" data-t="stat3">prazo máximo de entrega garantido</div>
     </div>
   </div>
 </section>
@@ -550,10 +572,10 @@
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10">
     <div class="reveal flex items-end justify-between gap-6 flex-wrap">
       <div class="max-w-[680px]">
-        <p class="eyebrow text-[#FBBC04]">Como funciona · 04 etapas</p>
-        <h2 class="display-xl mt-4 text-[40px] md:text-[56px]">Do briefing ao site no ar em até 7 dias.</h2>
+        <p class="eyebrow text-[#FBBC04]" data-t="how_eyebrow">Como funciona · 04 etapas</p>
+        <h2 class="display-xl mt-4 text-[40px] md:text-[56px]" data-t="how_h2">Do briefing ao site no ar em até 7 dias.</h2>
       </div>
-      <p class="text-white/60 max-w-sm text-[15px]">Sem reuniões intermináveis, sem agência cobrando por hora. Você fala direto com quem desenha, escreve e codifica.</p>
+      <p class="text-white/60 max-w-sm text-[15px]" data-t="how_desc">Sem reuniões intermináveis, sem agência cobrando por hora. Você fala direto com quem desenha, escreve e codifica.</p>
     </div>
 
     <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -563,8 +585,8 @@
           <div class="step-num">01</div>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h16" stroke="#FBBC04" stroke-width="1.6" stroke-linecap="round"/></svg>
         </div>
-        <h3 class="font-display font-semibold text-[20px] mt-6">Briefing rápido</h3>
-        <p class="text-white/60 text-[14.5px] mt-2 leading-relaxed">Você me conta o projeto em 30 minutos. Eu entendo o negócio, não só o visual.</p>
+        <h3 class="font-display font-semibold text-[20px] mt-6" data-t="s1_t">Briefing rápido</h3>
+        <p class="text-white/60 text-[14.5px] mt-2 leading-relaxed" data-t="s1_d">Você me conta o projeto em 30 minutos. Eu entendo o negócio, não só o visual.</p>
       </div>
       <!-- Step 2 -->
       <div class="reveal relative bg-[#111111] border border-[#222222] rounded-3xl p-7 hover:border-[#FBBC04]/40 transition" data-d="1">
@@ -572,8 +594,8 @@
           <div class="step-num">02</div>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="#FBBC04" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" stroke="#FBBC04" stroke-width="1.6"/></svg>
         </div>
-        <h3 class="font-display font-semibold text-[20px] mt-6">Protótipo em horas</h3>
-        <p class="text-white/60 text-[14.5px] mt-2 leading-relaxed">Uso IA e design system próprio pra gerar a primeira versão rapidamente.</p>
+        <h3 class="font-display font-semibold text-[20px] mt-6" data-t="s2_t">Protótipo em horas</h3>
+        <p class="text-white/60 text-[14.5px] mt-2 leading-relaxed" data-t="s2_d">Uso IA e design system próprio pra gerar a primeira versão rapidamente.</p>
       </div>
       <!-- Step 3 -->
       <div class="reveal relative bg-[#111111] border border-[#222222] rounded-3xl p-7 hover:border-[#FBBC04]/40 transition" data-d="2">
@@ -581,8 +603,8 @@
           <div class="step-num">03</div>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17l5-5 4 4 7-9" stroke="#FBBC04" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7h6v6" stroke="#FBBC04" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3 class="font-display font-semibold text-[20px] mt-6">Refino junto com você</h3>
-        <p class="text-white/60 text-[14.5px] mt-2 leading-relaxed">Ajustamos copy, imagens e detalhes até estar exatamente certo.</p>
+        <h3 class="font-display font-semibold text-[20px] mt-6" data-t="s3_t">Refino junto com você</h3>
+        <p class="text-white/60 text-[14.5px] mt-2 leading-relaxed" data-t="s3_d">Ajustamos copy, imagens e detalhes até estar exatamente certo.</p>
       </div>
       <!-- Step 4 -->
       <div class="reveal relative bg-[#FBBC04]/10 border border-[#FBBC04]/40 rounded-3xl p-7 hover:border-[#FBBC04]/70 transition" data-d="3">
@@ -590,8 +612,8 @@
           <div class="step-num">04</div>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z" stroke="#FBBC04" stroke-width="1.6" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="#FBBC04" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3 class="font-display font-semibold text-[20px] mt-6">No ar. Seu.</h3>
-        <p class="text-white/70 text-[14.5px] mt-2 leading-relaxed">Entrego o site hospedado, com domínio configurado e código 100% seu.</p>
+        <h3 class="font-display font-semibold text-[20px] mt-6" data-t="s4_t">No ar. Seu.</h3>
+        <p class="text-white/70 text-[14.5px] mt-2 leading-relaxed" data-t="s4_d">Entrego o site hospedado, com domínio configurado e código 100% seu.</p>
       </div>
     </div>
   </div>
@@ -604,10 +626,10 @@
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10">
     <div class="reveal flex items-end justify-between gap-6 flex-wrap">
       <div>
-        <p class="eyebrow text-[#FBBC04]">Cases selecionados</p>
-        <h2 class="display-xl mt-4 text-[40px] md:text-[56px]">Problema → Resultado.<br/>Sem vitrine, só impacto.</h2>
+        <p class="eyebrow text-[#FBBC04]" data-t="cases_eyebrow">Cases selecionados</p>
+        <h2 class="display-xl mt-4 text-[40px] md:text-[56px]" data-t="cases_h2" data-html>Problema → Resultado.<br/>Sem vitrine, só impacto.</h2>
       </div>
-      <a href="#" data-wa class="text-white/70 hover:text-white text-[14.5px] inline-flex items-center gap-2 transition">Discutir o seu caso →</a>
+      <a href="#" data-wa class="text-white/70 hover:text-white text-[14.5px] inline-flex items-center gap-2 transition" data-t="cases_link">Discutir o seu caso →</a>
     </div>
   </div>
 
@@ -621,7 +643,7 @@
             <h3 class="font-display font-semibold text-[20px]">Agente 360</h3>
             <span class="font-mono text-[11px] text-[#6B6B6B]">2025</span>
           </div>
-          <p class="text-[13px] text-white/65 mt-1.5">Evento · captura de leads premium.</p>
+          <p class="text-[13px] text-white/65 mt-1.5" data-t="case1">Evento · captura de leads premium.</p>
         </div>
       </a>
       <a href="#" class="case-card group">
@@ -631,7 +653,7 @@
             <h3 class="font-display font-semibold text-[20px]">Paróquia São Camilo de Léllis</h3>
             <span class="font-mono text-[11px] text-[#6B6B6B]">2025</span>
           </div>
-          <p class="text-[13px] text-white/65 mt-1.5">Institucional · referência digital na diocese.</p>
+          <p class="text-[13px] text-white/65 mt-1.5" data-t="case2">Institucional · referência digital na diocese.</p>
         </div>
       </a>
       <a href="#" class="case-card group">
@@ -641,7 +663,7 @@
             <h3 class="font-display font-semibold text-[20px]">Felicidade Ltda.</h3>
             <span class="font-mono text-[11px] text-[#6B6B6B]">2024</span>
           </div>
-          <p class="text-[13px] text-white/65 mt-1.5">Evento · Leandro Karnal e Mario Sergio Cortella.</p>
+          <p class="text-[13px] text-white/65 mt-1.5" data-t="case3">Evento · Leandro Karnal e Mario Sergio Cortella.</p>
         </div>
       </a>
       <a href="#" class="case-card group">
@@ -651,7 +673,7 @@
             <h3 class="font-display font-semibold text-[20px]">Unitari</h3>
             <span class="font-mono text-[11px] text-[#6B6B6B]">2023</span>
           </div>
-          <p class="text-[13px] text-white/65 mt-1.5">SaaS · gestão de condomínio sem fricção.</p>
+          <p class="text-[13px] text-white/65 mt-1.5" data-t="case4">SaaS · gestão de condomínio sem fricção.</p>
         </div>
       </a>
       <a href="#" class="case-card group">
@@ -661,7 +683,7 @@
             <h3 class="font-display font-semibold text-[20px]">Brigadeiro Gourmet 2.0</h3>
             <span class="font-mono text-[11px] text-[#6B6B6B]">2023</span>
           </div>
-          <p class="text-[13px] text-white/65 mt-1.5">Infoproduto · LP de alta conversão.</p>
+          <p class="text-[13px] text-white/65 mt-1.5" data-t="case5">Infoproduto · LP de alta conversão.</p>
         </div>
       </a>
       <a href="#" class="case-card group">
@@ -671,7 +693,7 @@
             <h3 class="font-display font-semibold text-[20px]">Vaapty</h3>
             <span class="font-mono text-[11px] text-[#6B6B6B]">2022</span>
           </div>
-          <p class="text-[13px] text-white/65 mt-1.5">Marketplace · venda de carro em 40 minutos.</p>
+          <p class="text-[13px] text-white/65 mt-1.5" data-t="case6">Marketplace · venda de carro em 40 minutos.</p>
         </div>
       </a>
     </div>
@@ -680,7 +702,7 @@
     <button type="button" id="cases-toggle" aria-pressed="false" aria-controls="cases-track" class="cases-toggle inline-flex items-center gap-2 rounded-full border border-[#222222] px-4 py-2.5 text-[13px] text-white/70 hover:text-white hover:border-[#FBBC04]/60 transition">
       <svg class="ico-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
       <svg class="ico-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l11 7-11 7V5Z"/></svg>
-      <span class="cases-toggle-label">Pausar carrossel</span>
+      <span class="cases-toggle-label" data-t="cases_pause">Pausar carrossel</span>
     </button>
   </div>
 </section>
@@ -698,12 +720,12 @@
     </div>
 
     <div class="lg:col-span-7 reveal" data-d="1">
-      <p class="eyebrow text-[#FBBC04]">Sobre</p>
-      <h2 class="display-xl mt-4 text-[36px] md:text-[48px]">Sou Gabriel Moreira.</h2>
-      <p class="mt-6 text-[17px] md:text-[18px] leading-relaxed text-white/80 max-w-[620px]">
+      <p class="eyebrow text-[#FBBC04]" data-t="about_eyebrow">Sobre</p>
+      <h2 class="display-xl mt-4 text-[36px] md:text-[48px]" data-t="about_h2">Sou Gabriel Moreira.</h2>
+      <p class="mt-6 text-[17px] md:text-[18px] leading-relaxed text-white/80 max-w-[620px]" data-t="about_p1" data-html>
         <strong class="text-white font-semibold">Designer, desenvolvedor e estrategista digital</strong> com <strong class="text-[#FBBC04] font-semibold">mais de 9 anos</strong> entregando projetos para <strong class="text-white font-semibold">grandes empresas</strong> — e agora ajudando <strong class="text-white font-semibold">negócios que querem escalar</strong> a ter a presença digital que o resultado deles exige.
       </p>
-      <p class="mt-5 text-[17px] md:text-[18px] leading-relaxed text-white/65 max-w-[620px]">
+      <p class="mt-5 text-[17px] md:text-[18px] leading-relaxed text-white/65 max-w-[620px]" data-t="about_p2" data-html>
         <strong class="text-white font-semibold">Não sou uma agência.</strong> Sou um <strong class="text-[#FBBC04] font-semibold">profissional solo</strong>, o que significa que você fala direto com quem faz. Cada projeto é tratado como se fosse <strong class="text-white font-semibold">o único</strong>.
       </p>
     </div>
@@ -715,15 +737,15 @@
   <div class="absolute inset-0 bg-noise opacity-60 pointer-events-none"></div>
   <div class="relative max-w-[1240px] mx-auto px-6 lg:px-10">
     <div class="reveal">
-      <p class="eyebrow text-[#FBBC04]">Depoimentos</p>
-      <h2 class="display-xl mt-4 text-[40px] md:text-[52px] max-w-3xl">Quem trabalhou comigo.</h2>
+      <p class="eyebrow text-[#FBBC04]" data-t="t_eyebrow">Depoimentos</p>
+      <h2 class="display-xl mt-4 text-[40px] md:text-[52px] max-w-3xl" data-t="t_h2">Quem trabalhou comigo.</h2>
     </div>
 
     <div class="mt-14 grid md:grid-cols-3 gap-5">
       <!-- T1 -->
       <figure class="reveal quote-card p-7" data-d="0">
         <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true"><path d="M0 22V12C0 5.4 4.6 0 11 0v4c-3.3 0-6 2.7-6 6h6v12H0Zm17 0V12C17 5.4 21.6 0 28 0v4c-3.3 0-6 2.7-6 6h6v12H17Z" fill="#FBBC04"/></svg>
-        <blockquote class="mt-5 text-[16px] leading-relaxed text-white/90">
+        <blockquote class="mt-5 text-[16px] leading-relaxed text-white/90" data-t="q1">
           O site se tornou um verdadeiro canal de evangelização. Nos conectamos com mais jovens e fortalecemos nossa presença digital.
         </blockquote>
         <figcaption class="mt-7 flex items-center gap-3 pt-5 border-t border-white/8">
@@ -740,7 +762,7 @@
       <!-- T2 -->
       <figure class="reveal quote-card p-7" data-d="1">
         <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true"><path d="M0 22V12C0 5.4 4.6 0 11 0v4c-3.3 0-6 2.7-6 6h6v12H0Zm17 0V12C17 5.4 21.6 0 28 0v4c-3.3 0-6 2.7-6 6h6v12H17Z" fill="#FBBC04"/></svg>
-        <blockquote class="mt-5 text-[16px] leading-relaxed text-white/90">
+        <blockquote class="mt-5 text-[16px] leading-relaxed text-white/90" data-t="q2">
           O Gabriel entregou tudo com rapidez e qualidade. Em menos de 7 dias o site estava no ar e hoje prospectamos clientes diretamente por ele.
         </blockquote>
         <figcaption class="mt-7 flex items-center gap-3 pt-5 border-t border-white/8">
@@ -748,7 +770,7 @@
             <img src="assets/avatars/drone-happy.png" alt="Drone Happy" class="w-full h-full object-cover" />
           </span>
           <div>
-            <div class="font-display text-[14px] font-semibold">Fundador</div>
+            <div class="font-display text-[14px] font-semibold" data-t="q2_role">Fundador</div>
             <div class="text-[12.5px] text-white/55">Drone Happy</div>
           </div>
         </figcaption>
@@ -757,7 +779,7 @@
       <!-- T3 -->
       <figure class="reveal quote-card p-7" data-d="2">
         <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true"><path d="M0 22V12C0 5.4 4.6 0 11 0v4c-3.3 0-6 2.7-6 6h6v12H0Zm17 0V12C17 5.4 21.6 0 28 0v4c-3.3 0-6 2.7-6 6h6v12H17Z" fill="#FBBC04"/></svg>
-        <blockquote class="mt-5 text-[16px] leading-relaxed text-white/90">
+        <blockquote class="mt-5 text-[16px] leading-relaxed text-white/90" data-t="q3">
           Visão estratégica e inovadora, sempre focado em resultado. O projeto gerou impacto real no negócio.
         </blockquote>
         <figcaption class="mt-7 flex items-center gap-3 pt-5 border-t border-white/8">
@@ -778,44 +800,44 @@
 <section id="faq" class="bg-night py-24 lg:py-32">
   <div class="max-w-[1040px] mx-auto px-6 lg:px-10">
     <div class="reveal text-center">
-      <p class="eyebrow text-[#FBBC04]">Perguntas frequentes</p>
-      <h2 class="display-xl mt-4 text-[40px] md:text-[52px]">Tudo que você quer saber<br/>antes de me chamar.</h2>
+      <p class="eyebrow text-[#FBBC04]" data-t="faq_eyebrow">Perguntas frequentes</p>
+      <h2 class="display-xl mt-4 text-[40px] md:text-[52px]" data-t="faq_h2" data-html>Tudo que você quer saber<br/>antes de me chamar.</h2>
     </div>
 
     <div class="mt-14 grid gap-3">
       <details class="faq reveal">
         <summary>
-          <span class="font-display font-medium text-[17px]">Quanto tempo leva?</span>
+          <span class="font-display font-medium text-[17px]" data-t="faq1_q">Quanto tempo leva?</span>
           <span class="faq-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         </summary>
-        <div class="faq-body">Seu site fica pronto em até 7 dias corridos a partir da entrega do briefing preenchido por você. O processo é 100% ágil e transparente para você acompanhar o avanço em cada etapa.</div>
+        <div class="faq-body" data-t="faq1_a">Seu site fica pronto em até 7 dias corridos a partir da entrega do briefing preenchido por você. O processo é 100% ágil e transparente para você acompanhar o avanço em cada etapa.</div>
       </details>
       <details class="faq reveal">
         <summary>
-          <span class="font-display font-medium text-[17px]">Quanto custa o projeto?</span>
+          <span class="font-display font-medium text-[17px]" data-t="faq2_q">Quanto custa o projeto?</span>
           <span class="faq-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         </summary>
-        <div class="faq-body">O investimento é personalizado de acordo com o escopo e as necessidades do seu negócio. Me chame no WhatsApp para alinharmos os detalhes em 30 minutos e definirmos a melhor solução para você.</div>
+        <div class="faq-body" data-t="faq2_a">O investimento é personalizado de acordo com o escopo e as necessidades do seu negócio. Me chame no WhatsApp para alinharmos os detalhes em 30 minutos e definirmos a melhor solução para você.</div>
       </details>
       <details class="faq reveal">
         <summary>
-          <span class="font-display font-medium text-[17px]">Como funciona a hospedagem?</span>
+          <span class="font-display font-medium text-[17px]" data-t="faq3_q">Como funciona a hospedagem?</span>
           <span class="faq-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         </summary>
-        <div class="faq-body">Você não precisa se preocupar com nada da parte técnica. Eu configuro e otimizo todo o site diretamente no meu servidor de alta performance para garantir máxima velocidade e segurança.</div>
+        <div class="faq-body" data-t="faq3_a">Você não precisa se preocupar com nada da parte técnica. Eu configuro e otimizo todo o site diretamente no meu servidor de alta performance para garantir máxima velocidade e segurança.</div>
       </details>
       <details class="faq reveal">
         <summary>
-          <span class="font-display font-medium text-[17px]">Como funciona a garantia e aprovação?</span>
+          <span class="font-display font-medium text-[17px]" data-t="faq4_q">Como funciona a garantia e aprovação?</span>
           <span class="faq-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         </summary>
-        <div class="faq-body">Seu investimento é totalmente protegido: você realiza 50% de entrada para iniciar o projeto e acompanha a construção. O site só entra no ar após a sua validação e aprovação final do resultado e você só faz o pagamento do saldo restante quando tudo estiver aprovado.</div>
+        <div class="faq-body" data-t="faq4_a">Seu investimento é totalmente protegido: você realiza 50% de entrada para iniciar o projeto e acompanha a construção. O site só entra no ar após a sua validação e aprovação final do resultado e você só faz o pagamento do saldo restante quando tudo estiver aprovado.</div>
       </details>
     </div>
 
     <div class="mt-12 text-center reveal">
       <a href="https://wa.me/5511947672575" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-[15px] text-white/85 hover:text-white border border-[#222222] hover:border-[#FBBC04]/60 rounded-full px-5 py-3 transition">
-        Ainda tem dúvida? Agenda uma conversa rápida
+        <span data-t="faq_cta">Ainda tem dúvida? Agenda uma conversa rápida</span>
         <span aria-hidden="true">→</span>
       </a>
     </div>
@@ -826,11 +848,11 @@
 <section id="contato" class="bg-[#FBBC04] text-ink">
   <div class="max-w-[1240px] mx-auto px-6 lg:px-10 py-20 lg:py-28 grid lg:grid-cols-12 gap-10 items-center">
     <div class="lg:col-span-8 reveal">
-      <p class="eyebrow text-[#4A3A00]">Agora é a hora</p>
+      <p class="eyebrow text-[#4A3A00]" data-t="cta_eyebrow">Agora é a hora</p>
       <h2 class="display-xxl mt-4 text-[44px] md:text-[64px] lg:text-[78px] text-ink typer" data-typer="Seu concorrente já tem|um site que converte." aria-label="Seu concorrente já tem um site que converte.">
         <span class="typer-out" aria-hidden="true"></span><span class="typer-caret" aria-hidden="true"></span>
       </h2>
-      <p class="mt-6 text-[18px] md:text-[20px] leading-relaxed text-[#3A2D00] max-w-2xl">Você pode ter um em até 7 dias. Sem enrolação, sem agência, sem surpresa no preço.</p>
+      <p class="mt-6 text-[18px] md:text-[20px] leading-relaxed text-[#3A2D00] max-w-2xl" data-t="cta_sub">Você pode ter um em até 7 dias. Sem enrolação, sem agência, sem surpresa no preço.</p>
     </div>
     <div class="lg:col-span-4 reveal" data-d="1">
       <a href="#" data-wa class="cta-final group relative overflow-hidden bg-ink hover:bg-[#0d0d0d] text-white rounded-2xl px-7 py-6 inline-flex items-center justify-between gap-6 w-full transition-all duration-300 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] hover:shadow-[0_28px_80px_-20px_rgba(0,0,0,0.65)] hover:-translate-y-0.5">
@@ -842,9 +864,9 @@
               <span class="absolute inline-flex h-full w-full rounded-full bg-[#FBBC04] opacity-70 animate-ping"></span>
               <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#FBBC04]"></span>
             </span>
-            Resposta em minutos
+            <span data-t="cta_badge">Resposta em minutos</span>
           </span>
-          <span class="block font-display font-semibold text-[22px] mt-1.5 tracking-[-0.01em]">Quero meu site agora</span>
+          <span class="block font-display font-semibold text-[22px] mt-1.5 tracking-[-0.01em]" data-t="cta_btn">Quero meu site agora</span>
         </span>
         <span class="relative grid place-items-center w-14 h-14 rounded-full bg-[#FBBC04] text-ink overflow-hidden transition-transform duration-300 group-hover:scale-105">
           <!-- arrow that slides out, replaced by next arrow -->
@@ -871,20 +893,20 @@
       <a href="#top" class="flex items-center" aria-label="Gabriel Moreira">
         <img src="assets/logo-branca.png" alt="Gabriel Tech Design" class="h-11 w-auto" />
       </a>
-      <p class="mt-4 text-white/50 text-[13.5px] max-w-xs">Presença digital que converte. Para empresas que querem escalar.</p>
+      <p class="mt-4 text-white/50 text-[13.5px] max-w-xs" data-t="foot_tag">Presença digital que converte. Para empresas que querem escalar.</p>
     </div>
     <div class="md:justify-self-end">
-      <div class="font-mono uppercase tracking-widest text-[11px] text-white/40">Navegar</div>
+      <div class="font-mono uppercase tracking-widest text-[11px] text-white/40" data-t="foot_nav">Navegar</div>
       <ul class="mt-4 grid gap-2 text-[14px] text-white/75">
-        <li><a class="hover:text-white" href="#como-funciona">Como funciona</a></li>
-        <li><a class="hover:text-white" href="#cases">Cases</a></li>
+        <li><a class="hover:text-white" href="#como-funciona" data-t="nav_how">Como funciona</a></li>
+        <li><a class="hover:text-white" href="#cases" data-t="nav_cases">Cases</a></li>
         <li><a class="hover:text-white" href="#faq">FAQ</a></li>
       </ul>
     </div>
   </div>
   <div class="border-t border-white/5">
     <div class="max-w-[1240px] mx-auto px-6 lg:px-10 py-6 flex flex-col md:flex-row gap-3 items-center justify-between text-[12px] text-white/40">
-      <span>© 2026 Gabriel Tech Design · CNPJ 40.366.269/0001-00 · Todos os direitos reservados</span>
+      <span data-t="foot_rights">© 2026 Gabriel Tech Design · CNPJ 40.366.269/0001-00 · Todos os direitos reservados</span>
       <span class="font-mono">
 </span>
     </div>
@@ -894,7 +916,7 @@
 </main>
 
 <!-- ============== FLOATING WHATSAPP FAB ============== -->
-<a href="#" data-wa aria-label="Falar no WhatsApp" style="font-family: Inter" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#FBBC04] text-[#090909] grid place-items-center shadow-[0_15px_40px_-10px_rgba(251,188,4,0.5)] hover:scale-105 transition">] hover:scale-105 transition">
+<a href="#" data-wa aria-label="Falar no WhatsApp" style="font-family: Inter" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#FBBC04] text-[#090909] grid place-items-center shadow-[0_15px_40px_-10px_rgba(251,188,4,0.5)] hover:scale-105 transition" data-t-aria="wa_aria">
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.3 3.1c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.4.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.1-1.4-.1-.1-.3-.2-.5-.3ZM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.3 1.3 4.8L2 22l5.4-1.4c1.4.8 3 1.2 4.6 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2Z"/></svg>
 </a>
 
@@ -1138,5 +1160,211 @@ window.addEventListener('message', (e)=>{
 try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(e){}
 </script>
 
+
+<script>
+/* =====================================================
+   Bilingue PT/EN — mesmo mecanismo da home (chave 'lang')
+   ===================================================== */
+(function(){
+  var HL = function(word){
+    return '<span class="relative whitespace-nowrap">' +
+           '<span class="relative z-10 text-[#FBBC04]">' + word + '</span>' +
+           '<svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none">' +
+           '<path d="M2 8 C 60 1, 140 1, 198 7" stroke="#FBBC04" stroke-width="3" stroke-linecap="round"/></svg></span>';
+  };
+
+  var I18N = {
+    pt: {
+      _title: "Gabriel Tech Design \u2014 Presen\u00e7a digital que converte",
+      _htmlLang: "pt-BR",
+      nav_how: "Como funciona", nav_cases: "Cases", nav_faq: "FAQ", nav_contact: "Contato",
+      nav_cta: "Falar no WhatsApp", wa_aria: "Falar no WhatsApp",
+      hero_h1: "Seu site profissional<br/>no ar em at\u00e9 " + HL("7 dias") + ".",
+      hero_sub: "Para empresas que querem escalar e precisam de uma presen\u00e7a digital que converte \u2014 n\u00e3o de mais uma ferramenta pra aprender.",
+      hero_cta: "Quero meu site em 7 dias", hero_cases: "Ver casos",
+      logos_label: "Projetos entregues para",
+      stat1: "anos de experi\u00eancia em tecnologia",
+      stat2: "de ROI comprovado em projeto estrat\u00e9gico",
+      stat3: "prazo m\u00e1ximo de entrega garantido",
+      days: " dias",
+      how_eyebrow: "Como funciona \u00b7 04 etapas",
+      how_h2: "Do briefing ao site no ar em at\u00e9 7 dias.",
+      how_desc: "Sem reuni\u00f5es intermin\u00e1veis, sem ag\u00eancia cobrando por hora. Voc\u00ea fala direto com quem desenha, escreve e codifica.",
+      s1_t: "Briefing r\u00e1pido", s1_d: "Voc\u00ea me conta o projeto em 30 minutos. Eu entendo o neg\u00f3cio, n\u00e3o s\u00f3 o visual.",
+      s2_t: "Prot\u00f3tipo em horas", s2_d: "Uso IA e design system pr\u00f3prio pra gerar a primeira vers\u00e3o rapidamente.",
+      s3_t: "Refino junto com voc\u00ea", s3_d: "Ajustamos copy, imagens e detalhes at\u00e9 estar exatamente certo.",
+      s4_t: "No ar. Seu.", s4_d: "Entrego o site hospedado, com dom\u00ednio configurado e c\u00f3digo 100% seu.",
+      cases_eyebrow: "Cases selecionados",
+      cases_h2: "Problema \u2192 Resultado.<br/>Sem vitrine, s\u00f3 impacto.",
+      cases_link: "Discutir o seu caso \u2192",
+      case1: "Evento \u00b7 captura de leads premium.",
+      case2: "Institucional \u00b7 refer\u00eancia digital na diocese.",
+      case3: "Evento \u00b7 Leandro Karnal e Mario Sergio Cortella.",
+      case4: "SaaS \u00b7 gest\u00e3o de condom\u00ednio sem fric\u00e7\u00e3o.",
+      case5: "Infoproduto \u00b7 LP de alta convers\u00e3o.",
+      case6: "Marketplace \u00b7 venda de carro em 40 minutos.",
+      cases_pause: "Pausar carrossel", cases_play: "Retomar carrossel",
+      about_eyebrow: "Sobre", about_h2: "Sou Gabriel Moreira.",
+      about_p1: '<strong class="text-white font-semibold">Designer, desenvolvedor e estrategista digital</strong> com <strong class="text-[#FBBC04] font-semibold">mais de 9 anos</strong> entregando projetos para <strong class="text-white font-semibold">grandes empresas</strong> \u2014 e agora ajudando <strong class="text-white font-semibold">neg\u00f3cios que querem escalar</strong> a ter a presen\u00e7a digital que o resultado deles exige.',
+      about_p2: '<strong class="text-white font-semibold">N\u00e3o sou uma ag\u00eancia.</strong> Sou um <strong class="text-[#FBBC04] font-semibold">profissional solo</strong>, o que significa que voc\u00ea fala direto com quem faz. Cada projeto \u00e9 tratado como se fosse <strong class="text-white font-semibold">o \u00fanico</strong>.',
+      t_eyebrow: "Depoimentos", t_h2: "Quem trabalhou comigo.",
+      q1: "O site se tornou um verdadeiro canal de evangeliza\u00e7\u00e3o. Nos conectamos com mais jovens e fortalecemos nossa presen\u00e7a digital.",
+      q2: "O Gabriel entregou tudo com rapidez e qualidade. Em menos de 7 dias o site estava no ar e hoje prospectamos clientes diretamente por ele.",
+      q3: "Vis\u00e3o estrat\u00e9gica e inovadora, sempre focado em resultado. O projeto gerou impacto real no neg\u00f3cio.",
+      q2_role: "Fundador",
+      faq_eyebrow: "Perguntas frequentes",
+      faq_h2: "Tudo que voc\u00ea quer saber<br/>antes de me chamar.",
+      faq1_q: "Quanto tempo leva?",
+      faq1_a: "Seu site fica pronto em at\u00e9 7 dias corridos a partir da entrega do briefing preenchido por voc\u00ea. O processo \u00e9 100% \u00e1gil e transparente para voc\u00ea acompanhar o avan\u00e7o em cada etapa.",
+      faq2_q: "Quanto custa o projeto?",
+      faq2_a: "O investimento \u00e9 personalizado de acordo com o escopo e as necessidades do seu neg\u00f3cio. Me chame no WhatsApp para alinharmos os detalhes em 30 minutos e definirmos a melhor solu\u00e7\u00e3o para voc\u00ea.",
+      faq3_q: "Como funciona a hospedagem?",
+      faq3_a: "Voc\u00ea n\u00e3o precisa se preocupar com nada da parte t\u00e9cnica. Eu configuro e otimizo todo o site diretamente no meu servidor de alta performance para garantir m\u00e1xima velocidade e seguran\u00e7a.",
+      faq4_q: "Como funciona a garantia e aprova\u00e7\u00e3o?",
+      faq4_a: "Seu investimento \u00e9 totalmente protegido: voc\u00ea realiza 50% de entrada para iniciar o projeto e acompanha a constru\u00e7\u00e3o. O site s\u00f3 entra no ar ap\u00f3s a sua valida\u00e7\u00e3o e aprova\u00e7\u00e3o final do resultado e voc\u00ea s\u00f3 faz o pagamento do saldo restante quando tudo estiver aprovado.",
+      faq_cta: "Ainda tem d\u00favida? Agenda uma conversa r\u00e1pida",
+      cta_eyebrow: "Agora \u00e9 a hora",
+      cta_typer: "Seu concorrente j\u00e1 tem|um site que converte.",
+      cta_sub: "Voc\u00ea pode ter um em at\u00e9 7 dias. Sem enrola\u00e7\u00e3o, sem ag\u00eancia, sem surpresa no pre\u00e7o.",
+      cta_badge: "Resposta em minutos", cta_btn: "Quero meu site agora",
+      foot_tag: "Presen\u00e7a digital que converte. Para empresas que querem escalar.",
+      foot_nav: "Navegar",
+      foot_rights: "\u00a9 2026 Gabriel Tech Design \u00b7 CNPJ 40.366.269/0001-00 \u00b7 Todos os direitos reservados"
+    },
+    en: {
+      _title: "Gabriel Tech Design \u2014 A digital presence that converts",
+      _htmlLang: "en",
+      nav_how: "How it works", nav_cases: "Cases", nav_faq: "FAQ", nav_contact: "Contact",
+      nav_cta: "Chat on WhatsApp", wa_aria: "Chat on WhatsApp",
+      hero_h1: "Your professional website<br/>live in just " + HL("7 days") + ".",
+      hero_sub: "For companies ready to scale that need a digital presence which converts \u2014 not one more tool to learn.",
+      hero_cta: "I want my site in 7 days", hero_cases: "See cases",
+      logos_label: "Projects delivered for",
+      stat1: "years of experience in technology",
+      stat2: "proven ROI on a strategic project",
+      stat3: "guaranteed maximum delivery time",
+      days: " days",
+      how_eyebrow: "How it works \u00b7 04 steps",
+      how_h2: "From briefing to a live website in up to 7 days.",
+      how_desc: "No endless meetings, no agency billing by the hour. You talk straight to the person who designs, writes and codes it.",
+      s1_t: "Quick briefing", s1_d: "You tell me about the project in 30 minutes. I take in the business, not just the visuals.",
+      s2_t: "Prototype in hours", s2_d: "I use AI and my own design system to put the first version together fast.",
+      s3_t: "Refined with you", s3_d: "We adjust copy, images and details until it is exactly right.",
+      s4_t: "Live. Yours.", s4_d: "I hand over the site hosted, with the domain set up and the code 100% yours.",
+      cases_eyebrow: "Selected cases",
+      cases_h2: "Problem \u2192 Result.<br/>No showcase, just impact.",
+      cases_link: "Discuss your project \u2192",
+      case1: "Event \u00b7 premium lead capture.",
+      case2: "Institutional \u00b7 a digital benchmark in the diocese.",
+      case3: "Event \u00b7 Leandro Karnal and Mario Sergio Cortella.",
+      case4: "SaaS \u00b7 frictionless property management.",
+      case5: "Digital product \u00b7 high-converting landing page.",
+      case6: "Marketplace \u00b7 sell a car in 40 minutes.",
+      cases_pause: "Pause carousel", cases_play: "Resume carousel",
+      about_eyebrow: "About", about_h2: "I'm Gabriel Moreira.",
+      about_p1: '<strong class="text-white font-semibold">Designer, developer and digital strategist</strong> with <strong class="text-[#FBBC04] font-semibold">over 9 years</strong> delivering projects for <strong class="text-white font-semibold">large companies</strong> \u2014 and now helping <strong class="text-white font-semibold">businesses ready to scale</strong> get the digital presence their results demand.',
+      about_p2: '<strong class="text-white font-semibold">I\'m not an agency.</strong> I work <strong class="text-[#FBBC04] font-semibold">solo</strong>, which means you talk straight to the person doing the work. Every project is treated as if it were <strong class="text-white font-semibold">the only one</strong>.',
+      t_eyebrow: "Testimonials", t_h2: "People who have worked with me.",
+      q1: "The website became a real channel for outreach. We connect with more young people and our digital presence is much stronger.",
+      q2: "Gabriel delivered everything quickly and with quality. In under 7 days the site was live, and today we bring in clients directly through it.",
+      q3: "Strategic, innovative thinking, always focused on results. The project made a real impact on the business.",
+      q2_role: "Founder",
+      faq_eyebrow: "Frequently asked questions",
+      faq_h2: "Everything you want to know<br/>before reaching out.",
+      faq1_q: "How long does it take?",
+      faq1_a: "Your website is ready within 7 calendar days from the moment you hand over the completed briefing. The process is fully agile and transparent, so you follow the progress at every stage.",
+      faq2_q: "How much does the project cost?",
+      faq2_a: "The investment is tailored to the scope and the needs of your business. Message me on WhatsApp so we can go through the details in 30 minutes and settle on the best solution for you.",
+      faq3_q: "How does hosting work?",
+      faq3_a: "You do not have to worry about anything technical. I set up and optimise the whole site on my own high-performance server to guarantee top speed and security.",
+      faq4_q: "How do the guarantee and approval work?",
+      faq4_a: "Your investment is fully protected: you pay 50% up front to start the project and follow the build as it happens. The site only goes live after your final validation and approval, and you only pay the remaining balance once everything is approved.",
+      faq_cta: "Still have questions? Book a quick chat",
+      cta_eyebrow: "Now is the time",
+      cta_typer: "Your competitor already has|a website that converts.",
+      cta_sub: "You can have one in up to 7 days. No runaround, no agency, no surprises on price.",
+      cta_badge: "Reply within minutes", cta_btn: "I want my site now",
+      foot_tag: "A digital presence that converts. For companies ready to scale.",
+      foot_nav: "Navigate",
+      foot_rights: "\u00a9 2026 Gabriel Tech Design \u00b7 Company ID 40.366.269/0001-00 \u00b7 All rights reserved"
+    }
+  };
+
+  var lang = 'pt';
+  try{
+    var saved = localStorage.getItem('lang');
+    if(saved === 'pt' || saved === 'en'){ lang = saved; }
+    else if((navigator.language||'').toLowerCase().indexOf('pt') !== 0){ lang = 'en'; }
+  }catch(e){}
+
+  function setLang(l){
+    if(!I18N[l]) return;
+    lang = l;
+    var d = I18N[l];
+
+    document.documentElement.lang = d._htmlLang;
+    document.title = d._title;
+
+    document.querySelectorAll('[data-t]').forEach(function(el){
+      var v = d[el.getAttribute('data-t')];
+      if(v == null) return;
+      if(el.hasAttribute('data-html')) el.innerHTML = v; else el.textContent = v;
+    });
+
+    document.querySelectorAll('[data-t-aria]').forEach(function(el){
+      var v = d[el.getAttribute('data-t-aria')];
+      if(v != null) el.setAttribute('aria-label', v);
+    });
+
+    // sufixo do contador "7 dias" / "7 days"
+    document.querySelectorAll('[data-t-suffix]').forEach(function(el){
+      var v = d[el.getAttribute('data-t-suffix')];
+      if(v == null) return;
+      el.dataset.suffix = v;
+      el.textContent = el.textContent.replace(/\s*(dias|days)\s*$/, v);
+    });
+
+    // botao de pausar/retomar o carrossel
+    var tog = document.getElementById('cases-toggle');
+    if(tog){
+      var lbl = tog.querySelector('.cases-toggle-label');
+      if(lbl) lbl.textContent = tog.getAttribute('aria-pressed') === 'true' ? d.cases_play : d.cases_pause;
+    }
+
+    // headline datilografada do CTA final
+    document.querySelectorAll('.typer').forEach(function(el){
+      el.setAttribute('data-typer', d.cta_typer);
+      el.setAttribute('aria-label', d.cta_typer.replace(/\|/g, ' '));
+      var out = el.querySelector('.typer-out');
+      if(out && out.textContent.length){           // ja foi digitado: redigita no novo idioma
+        el.classList.remove('done');
+        if(typeof runTyper === 'function') runTyper(el);
+      }
+    });
+
+    document.querySelectorAll('.lang-switch button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.l === l));
+    });
+
+    try{ localStorage.setItem('lang', l); }catch(e){}
+  }
+
+  document.querySelectorAll('.lang-switch button').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.dataset.l); });
+  });
+
+  // corrige o rotulo do carrossel depois do handler original
+  var tog0 = document.getElementById('cases-toggle');
+  if(tog0){
+    tog0.addEventListener('click', function(){
+      var lbl = tog0.querySelector('.cases-toggle-label');
+      if(lbl) lbl.textContent = tog0.getAttribute('aria-pressed') === 'true'
+        ? I18N[lang].cases_play : I18N[lang].cases_pause;
+    });
+  }
+
+  setLang(lang);
+})();
+</script>
 </body>
 </html>
