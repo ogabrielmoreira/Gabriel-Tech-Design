@@ -1229,7 +1229,8 @@ try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(e)
       cta_badge: "Resposta em minutos", cta_btn: "Quero meu site agora",
       foot_tag: "Presen\u00e7a digital que converte. Para empresas que querem escalar.",
       foot_nav: "Navegar",
-      foot_rights: "\u00a9 2026 Gabriel Tech Design \u00b7 CNPJ 40.366.269/0001-00 \u00b7 Todos os direitos reservados"
+      foot_rights: "\u00a9 2026 Gabriel Tech Design \u00b7 CNPJ 40.366.269/0001-00 \u00b7 Todos os direitos reservados",
+      wa_msg: "Oi! Vim do site, quero conversar sobre fazer meu site em 7 dias."
     },
     en: {
       _title: "Gabriel Tech Design \u2014 A digital presence that converts",
@@ -1286,7 +1287,8 @@ try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(e)
       cta_badge: "Reply within minutes", cta_btn: "I want my site now",
       foot_tag: "A digital presence that converts. For companies ready to scale.",
       foot_nav: "Navigate",
-      foot_rights: "\u00a9 2026 Gabriel Tech Design \u00b7 Company ID 40.366.269/0001-00 \u00b7 All rights reserved"
+      foot_rights: "\u00a9 2026 Gabriel Tech Design \u00b7 Company ID 40.366.269/0001-00 \u00b7 All rights reserved",
+      wa_msg: "Hi! I came from your website \u2014 I'd like to talk about getting my site built in 7 days."
     }
   };
 
@@ -1309,6 +1311,13 @@ try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(e)
       var v = d[el.getAttribute('data-t')];
       if(v == null) return;
       if(el.hasAttribute('data-html')) el.innerHTML = v; else el.textContent = v;
+    });
+
+    // todos os links de WhatsApp levam a mensagem no idioma da pagina
+    document.querySelectorAll('[data-wa], a[href*="wa.me/"]').forEach(function(a){
+      a.setAttribute('href', 'https://wa.me/5511947672575?text=' + encodeURIComponent(d.wa_msg));
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener');
     });
 
     document.querySelectorAll('[data-t-aria]').forEach(function(el){
